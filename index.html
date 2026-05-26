@@ -2009,5 +2009,44 @@
             }
         });
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Cari elemen-elemen penting
+    var orderModal = document.getElementById("orderModal");
+    var closeBtn = document.getElementById("closeModalBtn");
+    
+    // Cari semua butang tempahan yang ada dalam web kau
+    var orderButtons = document.querySelectorAll('[id*="order"], [class*="order"], .btn-primary');
+
+    // 2. Fungsi Paksa Buka
+    orderButtons.forEach(function(btn) {
+        // Jika butang itu bukan butang hantar borang, kita bagi fungsi buka modal
+        if (btn.getAttribute('type') !== 'submit' && !btn.closest('#orderForm')) {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                if (orderModal) {
+                    orderModal.style.display = "flex";
+                    console.log("Modal Tempahan dipaksa buka via skrip penyelamat.");
+                }
+            });
+        }
+    });
+
+    // 3. Fungsi Paksa Tutup
+    if (closeBtn && orderModal) {
+        closeBtn.addEventListener("click", function() {
+            orderModal.style.display = "none";
+        });
+    }
+
+    // Tutup bila klik luar modal
+    window.addEventListener("click", function(e) {
+        if (e.target === orderModal) {
+            orderModal.style.display = "none";
+        }
+    });
+});
+</script>
+    
 </body>
 </html>
