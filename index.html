@@ -1560,40 +1560,33 @@
         </div>
     </div>                    
     <!-- Modal Pembayaran TNG QR -->
-   <div class="modal-overlay" id="tngModal">
-        <div class="modal-content" style="border-color: var(--tng-blue); max-width: 340px; width: 90%; max-height: 90vh; overflow-y: auto; padding: 20px; position: relative; margin: auto;">
-            <span class="close-btn" id="closeTngBtn" style="position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer; z-index: 10; color: #fff; background: rgba(0,0,0,0.5); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">&times;</span>
-            
-            <div class="form-header" style="text-align: center; margin-top: 10px;">
-                <div style="background-color: var(--tng-blue); padding: 6px 12px; border-radius: 12px; display: inline-block; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-                    <span style="color: white; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.5px;">touch 'n go eWallet</span>
-                </div>
-                <h2 style="font-size: 1.4rem; margin-bottom: 5px;">Imbas Kod QR TNG</h2>
-                <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 15px;">Imbas kod QR di bawah untuk pembayaran pantas kepada ANW STORE</p>
+    <div class="modal-overlay" id="tngModal">
+    <div class="modal-content" style="border-color: var(--tng-blue); max-width: 340px; width: 92%; background: var(--bg-card); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); position: relative; margin: auto;">
+        <span class="close-btn" id="closeTngBtn" style="position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: var(--text-gray); cursor: pointer; line-height: 1;">&times;</span>
+        
+        <div class="form-header" style="text-align: center; margin-bottom: 15px;">
+            <div style="background-color: var(--tng-blue); padding: 6px 12px; border-radius: 10px; display: inline-block; margin-bottom: 10px;">
+                <span style="color: white; font-family: 'Montserrat', sans-serif; font-weight: bold;">TNG</span>
             </div>
+            <h2 style="font-size: 1.4rem; color: #fff; margin-bottom: 5px; font-weight: 800;">Imbas Kod QR TNG</h2>
+            <p style="font-size: 0.82rem; color: var(--text-gray); line-height: 1.4; margin: 0; padding: 0 10px;">Imbas kod QR di bawah untuk pembayaran pantas kepada ANW STORE</p>
+        </div>
 
-            <div style="text-align: center; margin-bottom: 15px;">
-                <div style="padding: 8px; background: white; border-radius: 15px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 220px; width: 100%;">
-                    <img src="qrtng.jpg" alt="QR TNG ANW STORE" style="width: 100%; height: auto; border-radius: 10px; display: block; margin: 0 auto;">
-                </div>
+        <div style="text-align: center; margin-bottom: 15px;">
+            <div style="padding: 8px; background: white; border-radius: 15px; display: inline-block; max-width: 200px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                <img src="qrtng.jpg" alt="QR TNG ANW STORE" style="width: 100%; height: auto; display: block; border-radius: 8px;">
             </div>
-
-            <p style="text-align: center; color: var(--text-gray); font-size: 0.8rem; margin-bottom: 15px; line-height: 1.4; padding: 0 5px;">
-                Selepas imbasan dibuat, sila simpan resit transaksi anda & hantar tangkapan skrin (screenshot) kepada admin di Telegram untuk pengesahan serta penghantaran kereta.
-            </p>
-
-            <a href="http://t.me/ayobanw" target="_blank" class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; background: #0088cc; color: white; padding: 10px; font-size: 0.9rem; border-radius: 8px;">
-                <i class="fab fa-telegram-plane" style="margin-right: 8px;"></i> Hantar Bukti Ke Telegram
-            </a>
         </div>
-    </div>
 
-            <a href="http://t.me/ayobanw" target="_blank" class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; background: #0088cc; color: white;">
-                <i class="fab fa-telegram-plane"></i> ADMIN SEBARANG PERTANYAAN
-            </a>
-        </div>
-    </div>
+        <p style="text-align: center; color: var(--text-gray); font-size: 0.8rem; line-height: 1.4; margin-bottom: 15px; padding: 0 5px;">
+            Selepas imbasan dibuat, sila simpan resit transaksi anda & hantar tangkapan skrin (screenshot) kepada admin di Telegram untuk pengesahan serta penghantaran kereta.
+        </p>
 
+        <a href="https://t.me/ayobanw" target="_blank" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 700; background: linear-gradient(135deg, #00529b, #007aff); color: #fff; border: none; border-radius: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0, 82, 155, 0.3); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">
+            <i class="fab fa-telegram-plane"></i> Hantar Bukti Ke Telegram
+        </a>
+    </div>
+</div>
     <!-- TINGKAP CHATBOT FIRA -->
     <div class="chatbot-bubble" id="chatBubble">
         <div class="chatbot-notification"></div>
