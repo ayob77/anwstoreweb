@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANW STORE - Pilihan Kereta CPM Terbaik Anda</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff9f1c; /* Oren Kuning Gaming */
+            --secondary-color: #2ec4b6; /* Turquoise Neon */
+            --bg-dark: #0f172a;       /* Slate Gelap Premium (Tailwind 900) */
+            --bg-card: #1e293b;       /* Slate Card (Tailwind 800) */
+            --text-light: #f8fafc;
+            --text-gray: #94a3b8;
+            --accent-red: #ff0055;
+            --tng-blue: #00529b;      /* Warna Rasmi TNG */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section dengan Gambar Latar Belakang & Gradient Overlay */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(46, 196, 182, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 159, 28, 0.15) 0%, transparent 40%),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        /* Hiasan Grid Berteknologi di Latar Belakang */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        /* Logo Di Atas Nama Perniagaan */
+        .brand-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            filter: drop-shadow(0 0 15px rgba(255, 159, 28, 0.6));
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 15px rgba(255, 159, 28, 0.6));
+            }
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 25px rgba(46, 196, 182, 0.8));
+            }
+        }
+
+        /* Animasi warna untuk nama perniagaan (Lebih Licin & Menarik) */
+        .brand-name {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff9f1c, #2ec4b6, #ff0055, #3a86ff, #ff9f1c);
+            background-size: 400% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 8s linear infinite;
+            text-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-gray);
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+        .hero-subtitle strong {
+            color: var(--primary-color);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        /* Butang Premium */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            border: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ff8200 100%);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 159, 28, 0.4);
+        }
+
+        /* Butang TNG QR */
+        .btn-tng {
+            background: linear-gradient(135deg, var(--tng-blue) 0%, #0076df 100%);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-tng:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 82, 155, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-light);
+            color: var(--bg-dark);
+            border-color: var(--text-light);
+            transform: translateY(-4px);
+        }
+
+        .trust-badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            opacity: 0.9;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trust-badge i {
+            color: var(--secondary-color);
+        }
+
+        /* Kenapa Pilih Kami Section */
+        #features {
+            padding: 100px 0;
+            background-color: var(--bg-card);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            margin-bottom: 4rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-dark);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: rgba(255, 159, 28, 0.2);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 3.2rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: inline-block;
+            background: rgba(255, 159, 28, 0.1);
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        /* Koleksi Kereta */
+        #cars {
+            padding: 100px 0;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .car-card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: scale(1.02);
+            border-color: var(--secondary-color);
+        }
+
+        /* SVG Car Graphics - Render instantly & perfectly */
+        .car-graphic {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 2px solid rgba(255,255,255,0.05);
+        }
+
+        .car-graphic svg {
+            width: 120px;
+            height: 120px;
+            filter: drop-shadow(0 0 15px rgba(46, 196, 182, 0.4));
+        }
+
+        .car-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .car-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .car-info p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .car-badge {
+            background: rgba(46, 196, 182, 0.1);
+            color: var(--secondary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Bahagian Galeri Gambar Kereta CPM (Swipe Kiri-Kanan) */
+        #gallery {
+            padding: 100px 0;
+            background-color: #0b111e;
+            position: relative;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .gallery-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 20px 5px 30px 5px;
+            -webkit-overflow-scrolling: touch; /* Melancarkan swipe pada iOS */
+            scroll-behavior: smooth;
+        }
+
+        /* Menyembunyikan scrollbar lalai untuk reka bentuk yang lebih bersih */
+        .gallery-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .gallery-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .gallery-item {
+            flex: 0 0 320px; /* Lebar tetap untuk setiap kad di dalam gelongsor */
+            scroll-snap-align: start;
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 15px 30px rgba(46, 196, 182, 0.2);
+        }
+
+        .gallery-img-box {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background-color: #0f172a;
+        }
+
+        .gallery-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img-box img {
+            transform: scale(1.1);
+        }
+
+        .gallery-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(15, 23, 42, 0.85);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 159, 28, 0.3);
+            text-transform: uppercase;
+        }
+
+        .gallery-details {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .gallery-details h3 {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .gallery-details p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Penunjuk Tarik Kiri Kanan */
+        .swipe-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            color: var(--text-gray);
+            font-weight: 600;
+            font-size: 0.95rem;
+            user-select: none;
+        }
+
+        .swipe-indicator i {
+            font-size: 1.1rem;
+            animation: bounceHorizontal 1.5s infinite alternate;
+        }
+
+        @keyframes bounceHorizontal {
+            0% { transform: translateX(-3px); }
+            100% { transform: translateX(3px); }
+        }
+
+        /* Bahagian Komen / Testimoni Pelanggan */
+        #testimonials {
+            padding: 100px 0;
+            background-color: var(--bg-dark);
+            position: relative;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(255, 159, 28, 0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            border: 2px solid var(--text-light);
+        }
+
+        .user-meta h4 {
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        .user-meta span {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .rating-stars {
+            color: #ffb703;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-body {
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .quote-icon {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+        }
+
+        /* Guarantee Section */
+        #trust {
+            padding: 100px 0;
+            background-color: var(--bg-card);
+            text-align: center;
+        }
+
+        .guarantee-box {
+            max-width: 850px;
+            margin: 0 auto;
+            border: 2px dashed rgba(255, 159, 28, 0.4);
+            padding: 50px 40px;
+            border-radius: 24px;
+            background-color: rgba(255, 159, 28, 0.02);
+            box-shadow: inset 0 0 40px rgba(255, 159, 28, 0.03);
+        }
+
+        .guarantee-box i {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .guarantee-box h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .guarantee-box p {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        /* Modal / Form Tempahan & TNG */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 550px;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.2rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--accent-red);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(255, 159, 28, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #090d16;
+            padding: 80px 0 30px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        /* Ikon Telegram Footer */
+        .telegram-community {
+            background: linear-gradient(135deg, #0088cc 0%, #00aaff 100%);
+            padding: 18px 40px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.3);
+            color: white;
+        }
+
+        .telegram-community:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 136, 204, 0.5);
+        }
+
+        .telegram-icon {
+            font-size: 2.6rem;
+        }
+
+        .telegram-text {
+            text-align: left;
+        }
+
+        .telegram-text strong {
+            display: block;
+            font-size: 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .telegram-text span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .copyright {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        /* Custom Success Notification (Bebas Alert Native) */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #06d6a0;
+            color: #000;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* QR Code Container Styling */
+        .qr-wrapper {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            margin: 20px 0;
+        }
+
+        /* --- BAHAGIAN INTERAKTIF CHATBOT FIRA --- */
+        /* Ikon Terapung Chatbot */
+        .chatbot-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(46, 196, 182, 0.4);
+            z-index: 999;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chatbot-bubble:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(46, 196, 182, 0.6);
+        }
+
+        .chatbot-bubble svg {
+            width: 32px;
+            height: 32px;
+            fill: #000;
+        }
+
+        .chatbot-notification {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-red);
+            border-radius: 50%;
+            border: 2px solid var(--text-light);
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.9); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(0.9); opacity: 1; }
+        }
+
+        /* Tetingkap Chatbot */
+        .chat-window {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 380px;
+            height: 520px;
+            background-color: var(--bg-card);
+            border-radius: 24px;
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .chat-window.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Header Chatbot */
+        .chat-header {
+            background: linear-gradient(135deg, #101c33 0%, #1e293b 100%);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chat-bot-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-bot-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .chat-bot-avatar svg {
+            width: 24px;
+            height: 24px;
+            fill: #000;
+        }
+
+        .chat-bot-info h3 {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chat-bot-info span {
+            display: block;
+            font-size: 0.8rem;
+            color: #06d6a0; /* Status Online Hijau */
+            font-weight: 600;
+        }
+
+        .chat-bot-info span::before {
+            content: '●';
+            margin-right: 4px;
+            font-size: 0.85rem;
+        }
+
+        .chat-close-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .chat-close-btn:hover {
+            color: var(--accent-red);
+        }
+
+        /* Ruang Mesej Chat */
+        .chat-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: rgba(15, 23, 42, 0.6);
+        }
+
+        .chat-msg {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .chat-msg.bot {
+            background-color: var(--bg-card);
+            color: var(--text-light);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chat-msg.user {
+            background-color: var(--secondary-color);
+            color: #000;
+            font-weight: 600;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Pilihan Cepat (Quick Replies) */
+        .chat-options {
+            padding: 10px 20px 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background-color: rgba(15, 23, 42, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .chat-opt-btn {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .chat-opt-btn:hover {
+            background-color: var(--primary-color);
+            color: #000;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Butang Tindakan Khas di dalam Chat */
+        .chat-action-btn {
+            background: linear-gradient(135deg, #0088cc 0%, #00aaff 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+            border: none;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .chat-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.5);
+        }
+
+        /* Input Chatbot */
+        .chat-footer {
+            padding: 15px 20px;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            background-color: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: white;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .chat-send-btn {
+            background-color: var(--secondary-color);
+            color: #000;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .chat-send-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--primary-color);
+        }
+
+        /* Responsif untuk Chatbot */
+        @media (max-width: 480px) {
+            .chat-window {
+                width: calc(100% - 40px);
+                right: 20px;
+                left: 20px;
+                bottom: 110px;
+                height: 480px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="container hero-content">
+            <!-- Logo Sukan Automotif Premium Di Sini -->
+            <div class="brand-logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Lingkaran Berpancar Luar -->
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="url(#logo-grad)" stroke-width="3" stroke-dasharray="8 4" />
+                    <!-- Perisai Hexagon -->
+                    <polygon points="50,15 80,30 80,70 50,85 20,70 20,30" fill="rgba(30, 41, 59, 0.95)" stroke="#ff9f1c" stroke-width="2"/>
+                    <!-- Siluet Kereta Lumba -->
+                    <path d="M30,55 L32,48 L42,46 L50,40 L58,46 L68,48 L70,55 L67,58 L33,58 Z" fill="#2ec4b6" />
+                    <circle cx="38" cy="58" r="4" fill="#ff9f1c" />
+                    <circle cx="62" cy="58" r="4" fill="#ff9f1c" />
+                    <!-- Sayap Kelajuan (Speed Wings) -->
+                    <path d="M25,40 L15,35 L20,48 Z" fill="#ff9f1c" />
+                    <path d="M75,40 L85,35 L80,48 Z" fill="#ff9f1c" />
+                    <!-- Gradasi Warna Sempurna -->
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff9f1c" />
+                            <stop offset="100%" stop-color="#2ec4b6" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Tajuk Utama Berubah Warna Smooth -->
+            <h1 class="brand-name">ANW STORE</h1>
+            <p class="hero-subtitle">
+                Destinasi Terunggul Untuk Semua Jenis Kereta <strong>Car Parking Multiplayer (CPM)</strong>. <br>
+                Proses Pantas, Harga Terbaik & Jaminan Selamat.
+            </p>
+            
+            <div class="hero-buttons">
+                <!-- Butang Utama Tempahan -->
+                <button class="btn btn-primary" id="openModalBtn">
+                    <i class="fas fa-shopping-cart"></i> Tempah Kereta Sekarang
+                </button>
+
+                <!-- Butang Pembayaran TNG QR -->
+                <button class="btn btn-tng" id="openTngBtn">
+                    <i class="fas fa-qrcode"></i> Pembayaran QR
+                </button>
+                
+                <!-- Butang Laman Web Rasmi -->
+                <a href="https://anwstore.my.id/" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-globe"></i> Laman Web Rasmi
+                </a>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="trust-badge-container">
+                <div class="trust-badge">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>100% Trusted Seller</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span>Penghantaran Pantas</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span>Sokongan Ramah</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Kenapa Pilih Kami -->
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">Kenapa Pilih <span>ANW Store?</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3>Semua Kereta Ada</h3>
+                    <p>Dari model asas, design custom yang rumit (livery), hinggalah ke spesifikasi maksimum atau kereta 'glitch/UFO' idaman anda!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <h3>Mudah & Selamat</h3>
+                    <p>Tiada risiko kehilangan akaun. Transaksi bersih dan dikendalikan sepenuhnya secara peribadi oleh admin berpengalaman.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-fire-flame-curved"></i>
+                    </div>
+                    <h3>Harga Mesra Poket</h3>
+                    <p>Kualiti tertinggi dengan tawaran harga terbaik dalam komuniti CPM. Berbaloi untuk semua pemain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Koleksi Pilihan Utama (Menggunakan SVG Tempatan) -->
+    <section id="cars">
+        <div class="container">
+            <h2 class="section-title">Koleksi <span>Paling Panas</span></h2>
+            <p style="text-align: center; margin-top: -30px; margin-bottom: 50px; color: var(--text-gray); font-size: 1.1rem;">
+                Kami menyediakan setiap satu kereta yang wujud dalam semesta CPM!
+            </p>
+            
+            <div class="car-grid">
+                <!-- Kad Kereta 1 -->
+                <div class="car-card">
+                    <div class="car-graphic">
+                        <!-- Custom SVG Car Icon 1 -->
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 8H5L3 12H21L19 8Z" fill="#ff9f1c"/>
+                            <path d="M19 12H5V16H19V12Z" fill="#e08600"/>
+                            <circle cx="7" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
+                            <circle cx="17" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
+                            <path d="M1 13H3" stroke="#ff9f1c" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="car-info">
+                        <span class="car-badge">Edisi Unik</span>
+                        <h3>Custom Livery & Design</h3>
+                        <p>Kereta dipasang dengan skin anime popular, lencana perlumbaan, atau reka bentuk super-cool.</p>
+                    </div>
+                </div>
+
+                <!-- Kad Kereta 2 -->
+                <div class="car-card">
+                    <div class="car-graphic">
+                        <!-- Custom SVG Car Icon 2 -->
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 8H5L3 12H21L19 8Z" fill="#2ec4b6"/>
+                            <path d="M19 12H5V16H19V12Z" fill="#1fa195"/>
+                            <circle cx="7" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
+                            <circle cx="17" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
+                            <path d="M12 4V8" stroke="#2ec4b6" stroke-width="2"/>
+                            <path d="M21 11H23" stroke="#2ec4b6" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="car-info">
+                        <span class="car-badge">Prestasi Ekstrim</span>
+                        <h3>Kereta Glitch / UFO</h3>
+                        <p>Alami kelajuan dan pecutan luar biasa untuk menjuarai setiap perlumbaan di dalam bandar.</p>
+                    </div>
+                </div>
+
+                <!-- Kad Kereta 3 -->
+                <div class="car-card">
+                    <div class="car-graphic">
+                        <!-- Custom SVG Car Icon 3 -->
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 8H5L3 12H21L19 8Z" fill="#ff0055"/>
+                            <path d="M19 12H5V16H19V12Z" fill="#c40041"/>
+                            <circle cx="7" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
+                            <circle cx="17" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="car-info">
+                        <span class="car-badge">Koleksi Mewah</span>
+                        <h3>Supercar & Kereta Coin</h3>
+                        <p>Dapatkan model kereta berbayar eksklusif tanpa perlu mengumpul coin yang memenatkan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn btn-primary" onclick="document.getElementById('orderModal').classList.add('active');">
+                    <i class="fas fa-question-circle"></i> Mahu Kereta Lain? Tanya Admin
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKSYEN: Galeri Gambar Kereta CPM (Swipe Kiri Kanan) -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri Pilihan <span>Kereta CPM</span></h2>
+            <p style="text-align: center; margin-top: -30px; margin-bottom: 30px; color: var(--text-gray); font-size: 1.1rem;">
+                Tarik atau Luncurkan (Swipe) kad di bawah untuk meninjau sebahagian daripada koleksi premium kami.
+            </p>
+
+            <div class="gallery-wrapper">
+                <div class="gallery-container">
+                    <!-- Kereta Galeri 1 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Design Anime</span>
+                            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=600&q=80" alt="Nissan GT-R CPM">
+                        </div>
+                        <div class="gallery-details">
+                            <h3>Nissan GT-R R35 Custom</h3>
+                            <p>Kemasan livery anime terperinci dengan 1600 HP penuh.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kereta Galeri 2 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Edisi Glitch</span>
+                            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Toyota Supra CPM">
+                        </div>
+                        <div class="gallery-details">
+                            <h3>Toyota Supra MK4 Glitch</h3>
+                            <p>Pecutan melampau dengan kestabilan pemanduan UFO.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kereta Galeri 3 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Hypercar</span>
+                            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80" alt="Bugatti Chiron CPM">
+                        </div>
+                        <div class="gallery-details">
+                            <h3>Bugatti Chiron Neon</h3>
+                            <p>Kemasan warna neon berkilat, model berbayar premium.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kereta Galeri 4 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Drift Spec</span>
+                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" alt="Mazda RX7 CPM">
+                        </div>
+                        <div class="gallery-details">
+                            <h3>Mazda RX-7 Drift Monster</h3>
+                            <p>Sedia ditala untuk aksi 'side-slide' di setiap sudut bandar.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kereta Galeri 5 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Chrome Wrap</span>
+                            <img src="https://images.unsplash.com/photo-1611244419377-b0a721864632?auto=format&fit=crop&w=600&q=80" alt="Porsche 911 CPM">
+                        </div>
+                        <div class="gallery-details">
+                            <h3>Porsche 911 Gold Chrome</h3>
+                            <p>Balutan chrome emas penuh berkilat memukau pandangan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Penunjuk Navigasi Swipe -->
+                <div class="swipe-indicator">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Slaid Kiri / Kanan Untuk Lainnya</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKSYEN: Komen / Testimoni Pelanggan -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Ulasan <span>Pelanggan</span></h2>
+            <p style="text-align: center; margin-top: -30px; margin-bottom: 30px; color: var(--text-gray); font-size: 1.1rem;">
+                Ketahui pengalaman menarik dan maklum balas jujur daripada komuniti pembeli kami.
+            </p>
+            
+            <div class="testimonials-grid">
+                <!-- Testimoni 1 (Komen Utama yang diminta) -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">S</div>
+                        <div class="user-meta">
+                            <h4>Syamil_CPM</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-body">
+                        "anw store kereta semua terbaik dan layanan yg memuaskan..5bintang"
+                    </p>
+                    <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+
+                <!-- Testimoni 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar" style="background: linear-gradient(135deg, #3a86ff, #2ec4b6);">F</div>
+                        <div class="user-meta">
+                            <h4>Faris_GTR</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-body">
+                        "Mula-mula risau juga nak beli, tapi admin sangat profesional. Proses hantar kereta dalam game tak sampai 5 minit pun siap. Kereta pun spec padu macam yang dijanjikan. Mantap!"
+                    </p>
+                    <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+
+                <!-- Testimoni 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar" style="background: linear-gradient(135deg, #ff0055, #ff9f1c);">A</div>
+                        <div class="user-meta">
+                            <h4>Akmal_99</h4>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-body">
+                        "Design custom livery anime dia memang kemas gila. Detail gila weh skin kereta. Berbaloi sangat beli kat sini berbanding kedai lain. Memang kedai CPM no 1!"
+                    </p>
+                    <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section id="trust">
+        <div class="container">
+            <div class="guarantee-box">
+                <i class="fas fa-award"></i>
+                <h3>Jaminan ANW Store 100%</h3>
+                <p>
+                    Keselamatan dan kepuasan anda adalah keutamaan mutlak kami. <br>
+                    Sekiranya anda menghadapi sebarang kesulitan, kami sedia mengembalikan wang anda sepenuhnya. Urusan telus, selamat, dan bebas bimbang!
+                </p>
+                <button class="btn btn-secondary" onclick="document.getElementById('orderModal').classList.add('active');">
+                    Mula Berurusan Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h2 style="font-size: 2rem;">Sertai Komuniti ANW</h2>
+                <p style="color: var(--text-gray); max-width: 600px; margin-top: -10px;">
+                    Dapatkan maklumat stok kereta terbaru, giveaway mingguan, serta diskaun eksklusif ahli dengan menyertai channel Telegram kami sekarang!
+                </p>
+                
+                <!-- Pautan Ikon Telegram ke Group/Channel -->
+                <a href="https://t.me/chennalanw" target="_blank" class="telegram-community">
+                    <i class="fab fa-telegram telegram-icon"></i>
+                    <div class="telegram-text">
+                        <strong>Channel Rasmi ANW</strong>
+                        <span>Klik untuk masuk group</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="year"></span> ANW STORE. Hak Cipta Terpelihara.<br>
+                Empayar Kereta Car Parking Multiplayer No.1 Anda.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form / Modal Tempahan -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            
+            <div class="form-header">
+                <h2>Borang Tempahan</h2>
+                <p>Lengkapkan butiran anda dan klik hantar untuk ke Telegram Admin</p>
+            </div>
+
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="nickname">Nama / Nickname CPM anda:</label>
+                    <input type="text" id="nickname" class="form-control" placeholder="Cth: ANW_PRO_DRIVER" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="carType">Kereta Pilihan:</label>
+                    <input type="text" id="carType" class="form-control" placeholder="Cth: Skyline R34 / Bugatti" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="carSpec">Kategori Kereta:</label>
+                    <select id="carSpec" class="form-control">
+                        <option value="Standard Premium">Standard Premium</option>
+                        <option value="Full Upgrade HP Max">Full Upgrade HP Max</option>
+                        <option value="Glitch/UFO Speed">Glitch/UFO Speed</option>
+                        <option value="Custom Design / Livery">Custom Design / Livery</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mesej Tambahan (Pilihan):</label>
+                    <textarea id="message" class="form-control" rows="3" placeholder="Sebarang permintaan khas untuk admin..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                    <i class="fab fa-telegram-plane"></i> Hantar Ke Telegram Admin
+                </button>
+                
+                <p style="text-align: center; margin-top: 15px; font-size: 0.8rem; color: var(--text-gray);">
+                    *Anda akan dihantar terus ke Telegram <strong>@ayobanw</strong> bersama teks tempahan.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Pembayaran TNG QR -->
+    <div class="modal-overlay" id="tngModal">
+        <div class="modal-content" style="border-color: var(--tng-blue);">
+            <span class="close-btn" id="closeTngBtn">&times;</span>
+            
+            <div class="form-header">
+                <div style="background-color: var(--tng-blue); padding: 8px 16px; border-radius: 12px; display: inline-block; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                    <span style="color: white; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.5px;">touch 'n go eWallet</span>
+                </div>
+                <h2>Imbas Kod QR TNG</h2>
+                <p>Imbas kod QR di bawah untuk pembayaran pantas kepada ANW STORE</p>
+            </div>
+
+            <div style="text-align: center;">
+                <div class="qr-wrapper">
+                    <!-- Premium Styled Local SVG QR Mockup (Sarat, Pantas, Berkualiti) -->
+                    <svg width="220" height="220" viewBox="0 0 100 100" style="display: block; margin: 0 auto;">
+                        <!-- Penjuru Atas Kiri -->
+                        <rect x="5" y="5" width="22" height="22" fill="#00529b" rx="2"/>
+                        <rect x="9" y="9" width="14" height="14" fill="white" rx="1"/>
+                        <rect x="12" y="12" width="8" height="8" fill="#00529b" rx="1"/>
+
+                        <!-- Penjuru Atas Kanan -->
+                        <rect x="73" y="5" width="22" height="22" fill="#00529b" rx="2"/>
+                        <rect x="77" y="9" width="14" height="14" fill="white" rx="1"/>
+                        <rect x="80" y="12" width="8" height="8" fill="#00529b" rx="1"/>
+
+                        <!-- Penjuru Bawah Kiri -->
+                        <rect x="5" y="73" width="22" height="22" fill="#00529b" rx="2"/>
+                        <rect x="9" y="77" width="14" height="14" fill="white" rx="1"/>
+                        <rect x="12" y="80" width="8" height="8" fill="#00529b" rx="1"/>
+
+                        <!-- Center TNG Logo Badge -->
+                        <rect x="40" y="40" width="20" height="20" fill="#ff9f1c" rx="4" stroke="white" stroke-width="1.5"/>
+                        <text x="50" y="52" fill="white" font-size="8" font-weight="900" text-anchor="middle" font-family="'Montserrat', sans-serif">TNG</text>
+
+                        <!-- Blok Pattern Rawak (Untuk simulasi kod QR sebenar) -->
+                        <g fill="#0f172a">
+                            <rect x="32" y="5" width="4" height="4" />
+                            <rect x="40" y="12" width="4" height="8" />
+                            <rect x="52" y="5" width="8" height="4" />
+                            <rect x="64" y="8" width="4" height="4" />
+                            <rect x="32" y="18" width="8" height="4" />
+                            <rect x="48" y="18" width="4" height="4" />
+                            <rect x="58" y="14" width="4" height="8" />
+
+                            <rect x="5" y="32" width="8" height="4" />
+                            <rect x="18" y="32" width="4" height="12" />
+                            <rect x="28" y="38" width="4" height="4" />
+                            <rect x="5" y="48" width="4" height="4" />
+                            <rect x="14" y="52" width="8" height="4" />
+
+                            <rect x="68" y="32" width="4" height="8" />
+                            <rect x="78" y="42" width="8" height="4" />
+                            <rect x="64" y="52" width="8" height="4" />
+                            <rect x="78" y="52" width="4" height="12" />
+                            <rect x="88" y="32" width="8" height="4" />
+
+                            <rect x="32" y="68" width="4" height="4" />
+                            <rect x="44" y="68" width="4" height="8" />
+                            <rect x="54" y="64" width="4" height="4" />
+                            <rect x="64" y="74" width="8" height="4" />
+                            <rect x="32" y="78" width="8" height="4" />
+                            <rect x="48" y="80" width="4" height="4" />
+                            <rect x="58" y="84" width="8" height="4" />
+                            <rect x="36" y="88" width="4" height="8" />
+                            <rect x="48" y="88" width="8" height="4" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: var(--text-gray); font-size: 0.9rem; margin-bottom: 25px; line-height: 1.5;">
+                Selepas imbasan dibuat, sila simpan resit transaksi anda & hantar tangkapan skrin (screenshot) kepada admin di Telegram untuk pengesahan serta penghantaran kereta.
+            </p>
+
+            <a href="http://t.me/ayobanw" target="_blank" class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; background: #0088cc; color: white;">
+                <i class="fab fa-telegram-plane"></i> Hantar Bukti Ke Telegram
+            </a>
+        </div>
+    </div>
+
+    <!-- TINGKAP CHATBOT FIRA -->
+    <div class="chatbot-bubble" id="chatBubble">
+        <div class="chatbot-notification"></div>
+        <!-- Ikon Sembang SVG -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/>
+        </svg>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <!-- Kepala Chat -->
+        <div class="chat-header">
+            <div class="chat-bot-profile">
+                <div class="chat-bot-avatar">
+                    <!-- Ikon Profil Perempuan SVG -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                </div>
+                <div class="chat-bot-info">
+                    <h3>Fira 👋</h3>
+                    <span>Aktif Sekarang</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" id="closeChatBtn">&times;</button>
+        </div>
+
+        <!-- Ruang Perbualan -->
+        <div class="chat-body" id="chatBody">
+            <!-- Mesej Aluan Bermula Secara Automatik -->
+        </div>
+
+        <!-- Pilihan Cepat -->
+        <div class="chat-options" id="chatOptions">
+            <!-- Pilihan dinamik akan ditambah di sini melalui JavaScript -->
+        </div>
+
+        <!-- Ruang Input Tambahan -->
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Tulis mesej anda di sini..." autocomplete="off">
+            <button class="chat-send-btn" id="sendChatBtn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Notification Toast -->
+    <div class="notification" id="successToast">
+        <i class="fas fa-circle-check"></i>
+        <span>Tempahan sedia dihantar! Membuka Telegram...</span>
+    </div>
+
+    <!-- JavaScript Vanilla -->
+    <script>
+        // Kemas kini tahun hak cipta secara automatik
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Elemen-elemen Modal Tempahan
+        const orderModal = document.getElementById('orderModal');
+        const openOrderBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Elemen-elemen Modal TNG
+        const tngModal = document.getElementById('tngModal');
+        const openTngBtn = document.getElementById('openTngBtn');
+        const closeTngBtn = document.getElementById('closeTngBtn');
+
+        const toast = document.getElementById('successToast');
+
+        // Navigasi Modal Tempahan
+        openOrderBtn.addEventListener('click', () => {
+            orderModal.classList.add('active');
+        });
+        closeModalBtn.addEventListener('click', () => {
+            orderModal.classList.remove('active');
+        });
+
+        // Navigasi Modal TNG
+        openTngBtn.addEventListener('click', () => {
+            tngModal.classList.add('active');
+        });
+        closeTngBtn.addEventListener('click', () => {
+            tngModal.classList.remove('active');
+        });
+
+        // Tutup sebarang modal jika klik di kawasan luar modal
+        window.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                orderModal.classList.remove('active');
+            }
+            if (e.target === tngModal) {
+                tngModal.classList.remove('active');
+            }
+        });
+
+        // Proses Penghantaran Borang Tempahan
+        const orderForm = document.getElementById('orderForm');
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Elakkan refresh halaman
+
+            // Ambil data dari input pengguna
+            const nickname = document.getElementById('nickname').value;
+            const carType = document.getElementById('carType').value;
+            const carSpec = document.getElementById('carSpec').value;
+            const message = document.getElementById('message').value;
+
+            // Membina teks tempahan yang menarik & berstruktur
+            let messageText = `⚡ *TEMPAHAN BARU CPM - ANW STORE* ⚡\n\n`;
+            messageText += `👤 *Nickname CPM:* ${nickname}\n`;
+            messageText += `🏎️ *Kereta Diidamkan:* ${carType}\n`;
+            messageText += `⚙️ *Jenis Spesifikasi:* ${carSpec}\n`;
+            
+            if (message.trim() !== "") {
+                messageText += `💬 *Permintaan Khas:* ${message}\n`;
+            }
+            
+            messageText += `\n_Hai admin @ayobanw, saya mahu order kereta ini! Sila maklumkan harga dan kaedah pembayaran._`;
+
+            // Enkod mesej untuk URL
+            const encodedText = encodeURIComponent(messageText);
+            
+            // Format URL ke Telegram Personal Admin
+            const telegramUrl = `https://t.me/ayobanw?text=${encodedText}`;
+
+            // Tunjukkan notifikasi success tersuai
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                // Buka Telegram di tetingkap baharu
+                window.open(telegramUrl, '_blank');
+                // Tutup modal & bersihkan borang
+                orderModal.classList.remove('active');
+                orderForm.reset();
+            }, 1200);
+        });
+
+        /* --- LOGIK PEMPROSESAN CHATBOT FIRA --- */
+        // Inisialisasi elemen chatbot
+        const chatBubble = document.getElementById('chatBubble');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChatBtn = document.getElementById('closeChatBtn');
+        const chatBody = document.getElementById('chatBody');
+        const chatOptions = document.getElementById('chatOptions');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+
+        // Pembolehubah untuk menyimpan status perbualan (state management)
+        let chatState = {
+            step: 'welcome',
+            nickname: '',
+            playerId: '',
+            contactInfo: '',
+            carType: '',
+            specType: ''
+        };
+
+        // Membuka / Menutup tetingkap chatbot
+        chatBubble.addEventListener('click', () => {
+            chatWindow.classList.add('active');
+            document.querySelector('.chatbot-notification').style.display = 'none'; // Padam notifikasi jika dibuka
+            if (chatBody.children.length === 0) {
+                startChat();
+            }
+        });
+
+        closeChatBtn.addEventListener('click', () => {
+            chatWindow.classList.remove('active');
+        });
+
+        // Memulakan sesi sembang
+        function startChat() {
+            chatBody.innerHTML = '';
+            addBotMessage("Hai! Saya Fira 🙋‍♀️, pembantu mesra anda di ANW STORE! Sedia membantu abang/kakak mendapatkan kereta CPM idaman atau menjawab sebarang soalan.");
+            setTimeout(() => {
+                showWelcomeOptions();
+            }, 800);
+        }
+
+        // Papar pilihan aluan utama
+        function showWelcomeOptions() {
+            addBotMessage("Bagaimana Fira boleh bantu anda hari ini?");
+            setOptions([
+                { text: "🏎️ Tempah Kereta Spec / ID", action: () => startBookingFlow() },
+                { text: "💰 Tanya Senarai Harga", action: () => showPricingInfo() },
+                { text: "💳 Cara Pembayaran (TNG)", action: () => showPaymentInfo() },
+                { text: "💬 Hubungi Admin Langsung", action: () => redirectToAdmin() }
+            ]);
+        }
+
+        // Memulakan aliran tempahan kereta CPM secara berpandu
+        function startBookingFlow() {
+            addUserMessage("Mahu tempah kereta");
+            chatState.step = 'get_nickname';
+            setTimeout(() => {
+                addBotMessage("Boleh! Jom kita mulakan tempahan. Boleh Fira tahu apa nama atau *Nickname CPM* abang/kakak?");
+                setOptions([]); // Kosongkan butang pilihan agar pengguna menaip
+            }, 500);
+        }
+
+        // Papar harga kereta
+        function showPricingInfo() {
+            addUserMessage("Berapa harga kereta?");
+            setTimeout(() => {
+                addBotMessage("Harga kami sangat murah dan mesra poket! Kereta serendah RM5 - RM15 sahaja bergantung kepada reka bentuk custom/glitch. Hubungi admin langsung untuk promosi kombo hari ini!");
+                setTimeout(() => {
+                    showWelcomeOptions();
+                }, 1000);
+            }, 500);
+        }
+
+        // Papar maklumat pembayaran
+        function showPaymentInfo() {
+            addUserMessage("Bagaimana cara membayar?");
+            setTimeout(() => {
+                addBotMessage("Mudah sangat! Kami menerima transaksi Touch 'n Go eWallet. Abang/kakak boleh menekan butang 'PEMBAYARAN QR' di bahagian atas landing page untuk imbasan langsung kod QR kami.");
+                setTimeout(() => {
+                    showWelcomeOptions();
+                }, 1000);
+            }, 500);
+        }
+
+        // Terus hubungi admin
+        function redirectToAdmin() {
+            addUserMessage("Tanya admin terus");
+            setTimeout(() => {
+                addBotMessage("Baiklah, anda boleh berbual terus dengan Admin utama @ayobanw di Telegram.");
+                const btn = document.createElement('button');
+                btn.className = 'chat-action-btn';
+                btn.innerHTML = `<i class="fab fa-telegram-plane"></i> Hubungi Admin Telegram`;
+                btn.onclick = () => window.open('https://t.me/ayobanw', '_blank');
+                chatBody.appendChild(btn);
+                scrollChat();
+                setTimeout(() => {
+                    showWelcomeOptions();
+                }, 1500);
+            }, 500);
+        }
+
+        // Memproses input teks bertulis pengguna
+        function handleUserInput() {
+            const text = chatInput.value.trim();
+            if (text === "") return;
+
+            addUserMessage(text);
+            chatInput.value = "";
+
+            // Memproses langkah aliran tempahan
+            if (chatState.step === 'get_nickname') {
+                chatState.nickname = text;
+                chatState.step = 'get_playerid';
+                setTimeout(() => {
+                    addBotMessage(`Selamat berkenalan, ${chatState.nickname}! Seterusnya, boleh berikan *ID Pemain CPM* anda? (Penting untuk proses pemindahan kereta nanti)`);
+                }, 800);
+            } else if (chatState.step === 'get_playerid') {
+                chatState.playerId = text;
+                chatState.step = 'get_contact';
+                setTimeout(() => {
+                    addBotMessage(`Terima kasih! Sila masukkan *No WhatsApp atau ID Telegram* abang/kakak supaya senang admin kami hubungi semula jika ada apa-apa.`);
+                }, 800);
+            } else if (chatState.step === 'get_contact') {
+                chatState.contactInfo = text;
+                chatState.step = 'get_cartype';
+                setTimeout(() => {
+                    addBotMessage(`Bagus! Sekarang, kereta model apa yang abang/kakak nak tempah? (Cth: GTR R35, Skyline R34, Supra, Bugatti)`);
+                }, 800);
+            } else if (chatState.step === 'get_cartype') {
+                chatState.carType = text;
+                chatState.step = 'get_spec';
+                setTimeout(() => {
+                    addBotMessage(`Wow, model ${chatState.carType} memang mantap! Pilihan spesifikasi kereta bagaimana yang anda mahukan?`);
+                    setOptions([
+                        { text: "⚡ Full Upgrade HP Max", action: () => selectSpec("Full Upgrade HP Max") },
+                        { text: "🛸 Glitch / UFO Speed", action: () => selectSpec("Glitch / UFO Speed") },
+                        { text: "🎨 Custom Design / Livery", action: () => selectSpec("Custom Design / Livery") },
+                        { text: "🚘 Standard Premium Only", action: () => selectSpec("Standard Premium Only") }
+                    ]);
+                }, 800);
+            } else {
+                // Respons lalai jika luar aliran tempahan
+                setTimeout(() => {
+                    addBotMessage("Mesej anda telah diterima! Sila pilih menu bantuan utama di bawah atau tekan butang untuk terus ke Telegram.");
+                    showWelcomeOptions();
+                }, 800);
+            }
+        }
+
+        // Pemilihan spesifikasi
+        function selectSpec(spec) {
+            chatState.specType = spec;
+            addUserMessage(spec);
+            chatState.step = 'done';
+            
+            setTimeout(() => {
+                addBotMessage("Alhamdulillah, semua butiran telah lengkap! Fira dah sediakan draf mesej tempahan ini khas untuk anda.");
+                
+                // Bina draf mesej tempahan Telegram (dengan maklumat tambahan yang diminta)
+                let customMessage = `⚡ *TEMPAHAN CHATBOT FIRA - ANW STORE* ⚡\n\n`;
+                customMessage += `👤 *Nickname CPM:* ${chatState.nickname}\n`;
+                customMessage += `🆔 *ID Pemain CPM:* ${chatState.playerId}\n`;
+                customMessage += `📞 *No WhatsApp/Telegram:* ${chatState.contactInfo}\n`;
+                customMessage += `🏎️ *Kereta:* ${chatState.carType}\n`;
+                customMessage += `⚙️ *Spec:* ${chatState.specType}\n\n`;
+                customMessage += `_Hai admin @ayobanw, saya dibantu oleh Fira untuk menempah kereta ini! Mohon pengesahan lanjut._`;
+
+                const encodedText = encodeURIComponent(customMessage);
+                const telegramUrl = `https://t.me/ayobanw?text=${encodedText}`;
+
+                // Butang tindakan untuk menghantar tempahan ke Telegram
+                const actionBtn = document.createElement('button');
+                actionBtn.className = 'chat-action-btn';
+                actionBtn.style.background = 'linear-gradient(135deg, #ff9f1c 0%, #ff8200 100%)';
+                actionBtn.style.color = '#000';
+                actionBtn.innerHTML = `<i class="fab fa-telegram-plane"></i> Hantar Tempahan Fira`;
+                actionBtn.onclick = () => {
+                    window.open(telegramUrl, '_blank');
+                    // Reset status selepas tempahan berjaya dihantar
+                    chatState = { step: 'welcome', nickname: '', playerId: '', contactInfo: '', carType: '', specType: '' };
+                    setTimeout(() => {
+                        addBotMessage("Terima kasih! Sila klik butang di atas jika mesej tidak terbuka automatik.");
+                        showWelcomeOptions();
+                    }, 1000);
+                };
+                
+                chatBody.appendChild(actionBtn);
+                setOptions([]); // Kosongkan butang pilihan lain
+                scrollChat();
+            }, 800);
+        }
+
+        // Helper fungsi menambah mesej bot
+        function addBotMessage(text) {
+            const msg = document.createElement('div');
+            msg.className = 'chat-msg bot';
+            msg.innerHTML = text;
+            chatBody.appendChild(msg);
+            scrollChat();
+        }
+
+        // Helper fungsi menambah mesej pengguna
+        function addUserMessage(text) {
+            const msg = document.createElement('div');
+            msg.className = 'chat-msg user';
+            msg.innerText = text;
+            chatBody.appendChild(msg);
+            scrollChat();
+        }
+
+        // Helper fungsi menetapkan pilihan cepat
+        function setOptions(optionsList) {
+            chatOptions.innerHTML = '';
+            optionsList.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'chat-opt-btn';
+                btn.innerText = opt.text;
+                btn.onclick = opt.action;
+                chatOptions.appendChild(btn);
+            });
+            scrollChat();
+        }
+
+        // Tatal ke bahagian bawah sembang secara automatik
+        function scrollChat() {
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // Event listener butang send chatbot
+        sendChatBtn.addEventListener('click', handleUserInput);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserInput();
+            }
+        });
+    </script>
+</body>
+</html>
