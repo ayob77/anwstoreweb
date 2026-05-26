@@ -449,30 +449,60 @@
         }
 
 <div class="modal-overlay" id="tngModal">
-        <div class="modal-content" style="border-color: var(--tng-blue);">
-            <span class="close-btn" id="closeTngBtn">&times;</span>
-            <div class="form-header">
-                <div style="background-color: var(--tng-blue); padding: 8px 16px; border-radius: 12px; display: inline-block; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-                    <span style="color: white; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.5px;">touch 'n go eWallet</span>
-                </div>
-                <h2>Imbas Kod QR TNG</h2>
-                <p>Imbas kod QR di bawah untuk pembayaran pantas kepada ANW STORE</p>
-            </div>
-
-            <div style="text-align: center;">
-                <div class="qr-wrapper" style="padding: 10px; background: white; border-radius: 15px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <img src="qrtng.jpg" alt="QR TNG ANW STORE" style="width: 100%; max-width: 250px; height: auto; border-radius: 10px; display: block; margin: 0 auto;">
-                </div>
-            </div>
-            <p style="text-align: center; color: var(--text-gray); font-size: 0.9rem; margin-bottom: 25px; line-height: 1.5;">
-                Selepas imbasan dibuat, sila simpan resit transaksi anda & hantar tangkapan skrin (screenshot) kepada admin di Telegram untuk pengesahan serta penghantaran kereta.
-            </p>
-            <a href="http://t.me/ayobanw" target="_blank" class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; background: #0088cc; color: white;">
-                <i class="fab fa-telegram-plane"></i> Hantar Bukti Ke Telegram
-            </a>
-        </div>
-    </div>
+    <div class="modal-content" style="border-color: var(--tng-blue); max-width: 340px; width: 92%; background: var(--bg-card); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); position: relative; margin: auto;">
+        <span class="close-btn" id="closeTngBtn" style="position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: var(--text-gray); cursor: pointer; line-height: 1;">&times;</span>
         
+        <div class="form-header" style="text-align: center; margin-bottom: 15px;">
+            <div style="background-color: var(--tng-blue); padding: 6px 12px; border-radius: 10px; display: inline-block; margin-bottom: 10px;">
+                <span style="color: white; font-family: 'Montserrat', sans-serif; font-weight: bold;">TNG</span>
+            </div>
+            <h2 style="font-size: 1.4rem; color: #fff; margin-bottom: 5px; font-weight: 800;">Imbas Kod QR TNG</h2>
+            <p style="font-size: 0.82rem; color: var(--text-gray); line-height: 1.4; margin: 0; padding: 0 10px;">Imbas kod QR di bawah untuk pembayaran pantas kepada ANW STORE</p>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 15px;">
+            <div style="padding: 12px; background: white; border-radius: 15px; display: inline-block; max-width: 200px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                <svg width="100%" height="100%" viewBox="0 0 100 100" style="display: block; aspect-ratio: 1/1;">
+                    <rect x="5" y="5" width="22" height="22" fill="#00529b" rx="2"/>
+                    <rect x="9" y="9" width="14" height="14" fill="white" rx="1"/>
+                    <rect x="12" y="12" width="8" height="8" fill="#00529b" rx="1"/>
+
+                    <rect x="73" y="5" width="22" height="22" fill="#00529b" rx="2"/>
+                    <rect x="77" y="9" width="14" height="14" fill="white" rx="1"/>
+                    <rect x="80" y="12" width="8" height="8" fill="#00529b" rx="1"/>
+
+                    <rect x="5" y="73" width="22" height="22" fill="#00529b" rx="2"/>
+                    <rect x="9" y="77" width="14" height="14" fill="white" rx="1"/>
+                    <rect x="12" y="80" width="8" height="8" fill="#00529b" rx="1"/>
+
+                    <g fill="#0f172a">
+                        <rect x="32" y="5" width="5" height="5" /><rect x="42" y="5" width="5" height="5" /><rect x="52" y="5" width="10" height="5" /><rect x="67" y="5" width="4" height="5" />
+                        <rect x="37" y="12" width="5" height="10" /><rect x="47" y="15" width="10" height="5" /><rect x="62" y="12" width="5" height="5" />
+                        <rect x="32" y="24" width="10" height="5" /><rect x="47" y="24" width="5" height="5" /><rect x="57" y="24" width="12" height="5" />
+                        <rect x="5" y="32" width="5" height="5" /><rect x="15" y="32" width="10" height="5" /><rect x="73" y="32" width="5" height="15" /><rect x="83" y="32" width="12" height="5" />
+                        <rect x="5" y="42" width="5" height="10" /><rect x="25" y="42" width="5" height="5" /><rect x="88" y="42" width="7" height="10" />
+                        <rect x="12" y="55" width="5" height="5" /><rect x="22" y="55" width="10" height="5" /><rect x="73" y="52" width="10" height="5" /><rect x="88" y="55" width="5" height="15" />
+                        <rect x="5" y="65" width="10" height="5" /><rect x="20" y="65" width="5" height="5" /><rect x="67" y="62" width="5" height="10" />
+                        <rect x="32" y="73" width="5" height="15" /><rect x="42" y="73" width="10" height="5" /><rect x="57" y="73" width="12" height="5" />
+                        <rect x="42" y="83" width="5" height="5" /><rect x="52" y="83" width="10" height="10" /><rect x="67" y="83" width="5" height="5" />
+                        <rect x="32" y="92" width="15" height="4" /><rect x="62" y="90" width="10" height="5" />
+                    </g>
+
+                    <rect x="37" y="41" width="26" height="18" fill="#ff9f1c" rx="3" stroke="white" stroke-width="1.2"/>
+                    <text x="50" y="52" fill="white" font-size="7.5" font-weight="900" text-anchor="middle" font-family="'Montserrat', 'Arial Black', sans-serif" letter-spacing="0.2">TNG</text>
+                </svg>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: var(--text-gray); font-size: 0.8rem; line-height: 1.4; margin-bottom: 15px; padding: 0 5px;">
+            Selepas imbasan dibuat, sila simpan resit transaksi anda & hantar tangkapan skrin (screenshot) kepada admin di Telegram untuk pengesahan serta penghantaran kereta.
+        </p>
+
+        <a href="https://t.me/ayobanw" target="_blank" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 700; background: linear-gradient(135deg, #00529b, #007aff); color: #fff; border: none; border-radius: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(0, 82, 155, 0.3); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">
+            <i class="fab fa-telegram-plane"></i> Hantar Bukti Ke Telegram
+        </a>
+    </div>
+</div>        
         .gallery-details {
             padding: 20px;
             text-align: left;
@@ -1500,52 +1530,7 @@
     </footer>
 
     <!-- Form / Modal Tempahan -->
-    <div class="modal-overlay" id="orderModal">
-        <div class="modal-content" style="max-width: 340px; width: 92%; background: var(--bg-card); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); position: relative; margin: auto;">
-            <span class="close-btn" id="closeModalBtn" style="position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: var(--text-gray); cursor: pointer; line-height: 1;">&times;</span>
-            
-            <div class="form-header" style="text-align: center; margin-bottom: 20px; padding-top: 10px;">
-                <h2 style="font-size: 1.6rem; margin-bottom: 8px; color: #fff; font-weight: 800; letter-spacing: 0.5px;">Tempahan</h2>
-                <p style="font-size: 0.82rem; color: var(--text-gray); line-height: 1.4; margin: 0;">Lengkapkan butiran anda dan klik hantar untuk ke Telegram Admin</p>
-            </div>
-
-            <form id="orderForm" style="display: flex; flex-direction: column; gap: 14px;">
-                <div class="form-group" style="display: flex; flex-direction: column; gap: 5px;">
-                    <label for="nickname" style="font-size: 0.85rem; color: #fff; font-weight: 600;">Nama / Nickname CPM anda:</label>
-                    <input type="text" id="nickname" class="form-control" placeholder="Cth: ANW_PRO_DRIVER" required style="width: 100%; padding: 10px 12px; background: rgba(10, 25, 47, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; font-size: 0.85rem; outline: none;">
-                </div>
-
-                <div class="form-group" style="display: flex; flex-direction: column; gap: 5px;">
-                    <label for="carType" style="font-size: 0.85rem; color: #fff; font-weight: 600;">Kereta Pilihan:</label>
-                    <input type="text" id="carType" class="form-control" placeholder="Cth: Skyline R34 / Bugatti" required style="width: 100%; padding: 10px 12px; background: rgba(10, 25, 47, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; font-size: 0.85rem; outline: none;">
-                </div>
-
-                <div class="form-group" style="display: flex; flex-direction: column; gap: 5px;">
-                    <label for="carSpec" style="font-size: 0.85rem; color: #fff; font-weight: 600;">Kategori Kereta:</label>
-                    <select id="carSpec" class="form-control" style="width: 100%; padding: 10px 12px; background: rgba(10, 25, 47, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; font-size: 0.85rem; outline: none; cursor: pointer;">
-                        <option value="standard Premium">Standard Premium</option>
-                        <option value="Full Upgrade HP Max">Full Upgrade HP Max</option>
-                        <option value="Glitch/UFO Speed">Glitch/UFO Speed</option>
-                        <option value="Custom Design / Livery">Custom Design / Livery</option>
-                    </select>
-                </div>
-
-                <div class="form-group" style="display: flex; flex-direction: column; gap: 5px;">
-                    <label style="font-size: 0.85rem; color: #fff; font-weight: 600;">Mesej Tambahan (Pilihan):</label>
-                    <textarea id="message" class="form-control" placeholder="Sebarang permintaan khas untuk admin..." style="width: 100%; height: 70px; padding: 10px 12px; background: rgba(10, 25, 47, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; font-size: 0.85rem; resize: none; outline: none;"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.88rem; font-weight: 700; background: linear-gradient(135deg, #ffbb00, #ff8800); color: #000; border: none; border-radius: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 5px; box-shadow: 0 4px 15px rgba(255, 136, 0, 0.3); text-transform: uppercase; letter-spacing: 0.5px;">
-                    <i class="fab fa-telegram-plane"></i> Hantar Ke Telegram Admin
-                </button>
-
-                <p style="text-align: center; margin-top: 10px; font-size: 0.78rem; color: var(--text-gray); line-height: 1.4; margin-bottom: 0;">
-                    *Anda akan dihantar terus ke Telegram <strong>@ayobanw</strong> bersama teks tempahan.
-                </p>
-            </form>
-        </div>
-    </div>
-
+    
     <div class="modal-overlay" id="tngModal">
         <div class="modal-content" style="border-color: var(--tng-blue); max-width: 340px; width: 92%; background: var(--bg-card); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); position: relative; margin: auto;">
             <span class="close-btn" id="closeTngBtn" style="position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: var(--text-gray); cursor: pointer; line-height: 1;">&times;</span>
