@@ -1818,7 +1818,7 @@
         // Memulakan sesi sembang
         function startChat() {
             chatBody.innerHTML = '';
-            addBotMessage("Hai! Saya Fira 🙋‍♀️, pembantu mesra anda di ANW STORE! Sedia membantu abang/kakak mendapatkan kereta CPM idaman atau menjawab sebarang soalan.");
+            addBotMessage("Hai! Saya Fira 🙋‍♀️, pembantu mesra anda di ANW STORE! Sedia membantu awak mendapatkan kereta CPM idaman atau menjawab sebarang soalan.");
             setTimeout(() => {
                 showWelcomeOptions();
             }, 800);
@@ -1831,7 +1831,7 @@
                 { text: "🏎️ Tempah Kereta Spec / ID", action: () => startBookingFlow() },
                 { text: "💰 Tanya Senarai Harga", action: () => showPricingInfo() },
                 { text: "💳 Cara Pembayaran (TNG)", action: () => showPaymentInfo() },
-                { text: "💬 Hubungi Admin Langsung", action: () => redirectToAdmin() }
+                { text: "💬 Hubungi Admin Langsung bg CPM2", action: () => redirectToAdmin() }
             ]);
         }
 
@@ -1840,7 +1840,7 @@
             addUserMessage("Mahu tempah kereta");
             chatState.step = 'get_nickname';
             setTimeout(() => {
-                addBotMessage("Boleh! Jom kita mulakan tempahan. Boleh Fira tahu apa nama atau *Nickname CPM* abang/kakak?");
+                addBotMessage("Boleh! Jom kita mulakan tempahan. Boleh Fira tahu apa nama atau *Nickname CPM* awak?");
                 setOptions([]); // Kosongkan butang pilihan agar pengguna menaip
             }, 500);
         }
@@ -1849,7 +1849,7 @@
         function showPricingInfo() {
             addUserMessage("Berapa harga kereta?");
             setTimeout(() => {
-                addBotMessage("Harga kami sangat murah dan mesra poket! Kereta serendah RM5 - RM15 sahaja bergantung kepada reka bentuk custom/glitch. Hubungi admin langsung untuk promosi kombo hari ini!");
+                addBotMessage("Harga kami sangat murah dan mesra poket! Kereta serendah RM5 - RM40 sahaja bergantung kepada reka bentuk custom/glitch. Hubungi admin langsung untuk promosi kombo hari ini!");
                 setTimeout(() => {
                     showWelcomeOptions();
                 }, 1000);
@@ -1860,7 +1860,7 @@
         function showPaymentInfo() {
             addUserMessage("Bagaimana cara membayar?");
             setTimeout(() => {
-                addBotMessage("Mudah sangat! Kami menerima transaksi Touch 'n Go eWallet. Abang/kakak boleh menekan butang 'PEMBAYARAN QR' di bahagian atas landing page untuk imbasan langsung kod QR kami.");
+                addBotMessage("Mudah sangat! Kami menerima transaksi Touch 'n Go eWallet. awak boleh menekan butang 'PEMBAYARAN QR' di bahagian atas landing page untuk imbasan langsung kod QR kami.");
                 setTimeout(() => {
                     showWelcomeOptions();
                 }, 1000);
@@ -1918,7 +1918,7 @@
                     addBotMessage(`Wow, model ${chatState.carType} memang mantap! Pilihan spesifikasi kereta bagaimana yang anda mahukan?`);
                     setOptions([
                         { text: "⚡ Full Upgrade HP Max", action: () => selectSpec("Full Upgrade HP Max") },
-                        { text: "🛸 Glitch / UFO Speed", action: () => selectSpec("Glitch / UFO Speed") },
+                        { text: "🛸 Glitch 3sec", action: () => selectSpec("Glitch 3sec") },
                         { text: "🎨 Custom Design / Livery", action: () => selectSpec("Custom Design / Livery") },
                         { text: "🚘 Standard Premium Only", action: () => selectSpec("Standard Premium Only") }
                     ]);
