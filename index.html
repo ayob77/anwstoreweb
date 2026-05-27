@@ -1500,20 +1500,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const gambarRaw = columns[3] ? columns[3].replace(/"/g, '').trim() : "";
                 const linkAction = columns[4] ? columns[4].replace(/"/g, '').trim() : "";
 
-                // TRIK AMBIL GAMBAR TELEGRAM: Guna proxy imej 'images.weserv.nl' untuk bypass sekatan Telegram
-                let linkGambar = "https://via.placeholder.com/300x400?text=ANW+STORE";
-                
-                if (gambarRaw && gambarRaw.includes("t.me/")) {
-                    // Tukar bentuk link biasa /s/ kepada format direct link gambar Telegram yang boleh ditarik
-                    let cleanLink = gambarRaw.replace("t.me/s/", "t.me/");
-                    let msgId = cleanLink.substring(cleanLink.lastIndexOf('/') + 1);
-                    let channelName = cleanLink.substring(cleanLink.indexOf('t.me/') + 5, cleanLink.lastIndexOf('/'));
-                    
-                    // Kita bypass pakai open-source image resizer proxy (Sangat stabil & Laju)
-                    linkGambar = `https://images.weserv.nl/?url=tg.pe/wp-content/telegram-embed-images/${channelName}-${msgId}.jpg`;
-                } else if (gambarRaw) {
-                    linkGambar = gambarRaw;
-                }
+                // Guna link direct dari Google Sheets
+                const linkGambar = gambarRaw ? gambarRaw.trim() : "https://via.placeholder.com/300x400?text=ANW+STORE";
 
                 let cardHtml = `
                     <div class="sheet-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(10px);">
@@ -1548,8 +1536,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(err => console.error("Gagal memuatkan sistem jualan slide:", err));
 });
-</script>
-    
+</script>    
 
     <!-- SEKSYEN: Komen / Testimoni Pelanggan -->
     <section id="testimonials">
