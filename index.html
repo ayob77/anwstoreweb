@@ -231,18 +231,18 @@
 
         /* Kenapa Pilih Kami Section */
         #features {
-            padding: 40px 0;
+            padding: 20px 0; /* Kurangkan ruang kosong atas bawah */
             background-color: var(--bg-card);
             position: relative;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.1rem; /* Kecilkan tajuk utama KENAPA PILIH ANW STORE */
+            margin-bottom: 1.5rem;
             color: var(--text-light);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             position: relative;
         }
 
@@ -253,25 +253,27 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -8px; /* Rapatkan garisan bawah */
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
+            width: 40px; /* Pendekkan garisan */
+            height: 3px;
             background-color: var(--primary-color);
             border-radius: 2px;
         }
 
+        /* SUSUNAN GRID: Di komputer 3 baris, di phone kita set automatik */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Lebar kotak dikecilkan supaya muat */
+            gap: 10px; /* Rapatkan jarak antara kotak */
+            padding: 0 10px;
         }
 
         .feature-card {
             background-color: var(--bg-dark);
-            padding: 40px 30px;
-            border-radius: 20px;
+            padding: 15px 10px; /* Nipiskan padding dalam kotak supaya pendek */
+            border-radius: 12px;
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid rgba(180, 180, 180, 0.03);
@@ -285,15 +287,15 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             opacity: 0;
             transition: opacity 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
             border-color: rgba(180, 100, 28, 0.2);
         }
 
@@ -301,54 +303,55 @@
             opacity: 1;
         }
 
+        /* PUNCANYA DI SINI: Dah dibetulkan daripada 500px kepada 45px comel */
         .feature-icon {
-            font-size: 1.0rem;
+            font-size: 1.1rem; /* Kecilkan saiz icon */
             color: var(--primary-color);
-            margin-bottom: 25px;
+            margin-bottom: 8px; /* Rapatkan dengan tulisan h3 */
             display: inline-block;
             background: rgba(180, 100, 28, 0.1);
-            width: 500px;
-            height: 500px;
-            line-height: 50px;
+            width: 45px; /* SANGAT NGAM: Dah potong dari 500px */
+            height: 45px; /* SANGAT NGAM: Dah potong dari 500px */
+            line-height: 45px;
             border-radius: 50%;
         }
 
+        /* Kecilkan tulisan Tajuk Kotak (Contoh: Semua Kereta Ada) */
         .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            margin-bottom: 6px;
+            font-size: 0.9rem; /* Dikecilkan supaya tak makan baris panjang */
+            font-weight: bold;
         }
 
+        /* Kecilkan tulisan Penerangan Pendek */
         .feature-card p {
             color: var(--text-gray);
-            font-size: 1rem;
+            font-size: 0.72rem; /* Haluskan tulisan penerangan */
+            line-height: 1.3;
+        }
+
+        /* RESPONSIVE PHONE: Paksa masuk side-by-side (2 kotak sebaris) di skrin kecil */
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr) !important; /* Paksa 2 kotak duduk sebelah-sebelah */
+                gap: 8px !important;
+            }
+            .feature-card {
+                padding: 12px 8px !important;
+            }
+            .feature-card p {
+                font-size: 0.68rem !important; /* Kecilkan sikit lagi teks p untuk screen phone kecik */
+            }
         }
 
         /* Koleksi Kereta */
         #cars {
-            padding: 100px 0;
+            padding: 60px 0;
         }
 
-        .car-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
 
-        .car-card {
-            background-color: var(--bg-card);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 1px solid rgba(180, 180, 180, 0.05);
-            transition: all 0.3s ease;
-        }
 
-        .car-card:hover {
-            transform: scale(1.02);
-            border-color: var(--secondary-color);
-        }
-
+        
         /* SVG Car Graphics - Render instantly & perfectly */
         .car-graphic {
             width: 100%;
