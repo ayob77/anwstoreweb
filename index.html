@@ -1244,129 +1244,89 @@
     </section>
 
     <!-- Koleksi Pilihan Utama (Menggunakan SVG Tempatan) -->
-<section id="cars" style="padding: 30px 0; background-color: var(--bg-card); overflow: hidden;">
+<section id="cars" style="padding: 25px 0; background-color: var(--bg-card); overflow: hidden;">
     <div class="container">
-        <h2 class="section-title" style="text-align: center; font-size: 1.5rem; margin-bottom: 10px;">Koleksi <span>Paling Panas</span></h2>
-        <p style="text-align: center; margin-top: 0; margin-bottom: 25px; color: var(--text-gray); font-size: 0.8rem; padding: 0 10px;">
+        <h2 class="section-title" style="text-align: center; font-size: 1.4rem; margin-bottom: 5px;">Koleksi <span>Paling Panas</span></h2>
+        <p style="text-align: center; margin-top: 0; margin-bottom: 20px; color: var(--text-gray); font-size: 0.75rem; padding: 0 10px;">
             Kami menyediakan setiap satu kereta yang wujud dalam semesta CPM!
         </p>
         
         <style>
             .car-grid {
                 display: grid !important;
-                grid-template-columns: repeat(3, 1fr) !important; /* Lock 3 kotak sebaris */
-                gap: 8px !important; /* Rapatkan jarak antara kotak */
-                padding: 0 10px !important;
-                margin-bottom: 20px;
+                grid-template-columns: repeat(3, 1fr) !important; /* Kekal 3 kotak sebaris */
+                gap: 6px !important; /* Jarak rapat yang ngam */
+                padding: 0 8px !important;
+                margin-bottom: 15px;
             }
             .car-card {
                 background: rgba(15, 23, 42, 0.6) !important;
                 border: 1px solid rgba(255, 255, 255, 0.1) !important;
-                padding: 10px 5px !important; /* Padding nipis gila biar muat */
-                border-radius: 10px !important;
+                padding: 12px 4px !important; /* Padding seimbang sebab ikon dah takde */
+                border-radius: 8px !important;
                 text-align: center !important;
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: center !important;
+                justify-content: flex-start !important;
+                min-height: 110px; /* Bagi tinggi kotak semua sama rata */
             }
-            /* Kecilkan Ikon SVG Kereta Gergasi Jadi Comel */
-            .car-graphic svg {
-                width: 35px !important;
-                height: 35px !important;
-                margin-bottom: 6px !important;
-            }
-            /* Hilangkan badge atau kecilkan gila-gila */
             .car-badge {
                 display: inline-block !important;
                 font-size: 0.55rem !important;
-                padding: 2px 4px !important;
+                padding: 2px 5px !important;
                 border-radius: 4px !important;
-                margin-bottom: 5px !important;
-                white-space: nowrap;
+                margin-bottom: 8px !important;
+                font-weight: bold !important;
             }
-            /* Tulisan Tajuk Dalam Kotak (Contoh: Custom Livery) */
             .car-info h3 {
                 font-size: 0.75rem !important; 
-                line-height: 1.1 !important;
-                margin: 4px 0 !important;
+                line-height: 1.2 !important;
+                margin: 0 0 6px 0 !important;
                 font-weight: bold !important;
                 color: #fff !important;
             }
-            /* Tulisan Penerangan Halus Style Menu */
             .car-info p {
-                font-size: 0.6rem !important; /* Sangat halus supaya teks panjang muat satu skrin */
+                font-size: 0.6rem !important; 
                 line-height: 1.2 !important;
                 color: #94a3b8 !important;
                 margin: 0 !important;
-            }
-            
-            /* Sesuai untuk skrin phone yang sangat kecil */
-            @media (max-width: 380px) {
-                .car-info h3 { font-size: 0.65rem !important; }
-                .car-info p { display: none; } /* Kalau phone kecik gila, sorok penerangan, tinggal tajuk je biar tak pecah */
             }
         </style>
         
         <div class="car-grid">
             <div class="car-card">
-                <div class="car-graphic">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 8H5L3 12H21L19 8Z" fill="#ff9f1c"/>
-                        <path d="M19 12H5V16H19V12Z" fill="#e08600"/>
-                        <circle cx="7" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
-                        <circle cx="17" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
-                        <path d="M1 13H3" stroke="#ff9f1c" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
                 <div class="car-info">
-                    <span class="car-badge" style="background: #ff9f1c; color: #fff;">Edisi Unik</span>
+                    <span class="car-badge" style="background: #ff9f1c; color: #fff;">EDISI UNIK</span>
                     <h3>Custom Livery</h3>
                     <p>Skin anime popular & design cool.</p>
                 </div>
             </div>
 
             <div class="car-card">
-                <div class="car-graphic">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 8H5L3 12H21L19 8Z" fill="#2ec4b6"/>
-                        <path d="M19 12H5V16H19V12Z" fill="#1fa195"/>
-                        <circle cx="7" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
-                        <circle cx="17" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
-                        <path d="M12 4V8" stroke="#2ec4b6" stroke-width="2"/>
-                        <path d="M21 11H23" stroke="#2ec4b6" stroke-width="2"/>
-                    </svg>
-                </div>
-                <div class="car-info">
-                    <span class="car-badge" style="background: #2ec4b6; color: #fff;">Prestasi</span>
+                <div class="info">
+                    <span class="car-badge" style="background: #2ec4b6; color: #fff;">PRESTASI</span>
                     <h3>Kereta Glitch</h3>
                     <p>Kelajuan UFO luar biasa bandar.</p>
                 </div>
             </div>
 
             <div class="car-card">
-                <div class="car-graphic">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 8H5L3 12H21L19 8Z" fill="#ff0055"/>
-                        <path d="M19 12H5V16H19V12Z" fill="#c40041"/>
-                        <circle cx="7" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
-                        <circle cx="17" cy="17" r="2.5" fill="#0f172a" stroke="#fff" stroke-width="1.5"/>
-                    </svg>
-                </div>
                 <div class="car-info">
-                    <span class="car-badge" style="background: #ff0055; color: #fff;">Mewah</span>
+                    <span class="car-badge" style="background: #ff0055; color: #fff;">MEWAH</span>
                     <h3>Supercar Coin</h3>
                     <p>Model berbayar tanpa kumpul coin.</p>
                 </div>
             </div>
         </div>
 
-        <div style="text-align: center; padding: 0 10px;">
-            <button class="btn btn-primary" onclick="document.getElementById('orderModal').classList.add('active');" style="font-size: 0.85rem; padding: 8px 16px;">
+        <div style="text-align: center;">
+            <button class="btn btn-primary" onclick="document.getElementById('orderModal').classList.add('active');" style="font-size: 0.8rem; padding: 8px 14px; border-radius: 20px;">
                 <i class="fas fa-question-circle"></i> Kereta Lain? Tanya Admin
             </button>
         </div>
     </div>
-</section>   
+</section>    
 
     <!-- SEKSYEN: Galeri Gambar Kereta CPM (Swipe Kiri Kanan) -->
 <div class="gallery-wrapper" style="padding: 10px 5px; width: 100%; overflow: hidden;">
