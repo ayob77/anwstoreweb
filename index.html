@@ -1450,6 +1450,77 @@
         </div>
     </section>
 
+<section id="koleksi-standard" style="padding: 40px 0; background: transparent;">
+    <div class="container">
+        <h2 style="color: #fff; text-align: center; margin-bottom: 30px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; font-size: 1.8rem;">
+            🔥 Koleksi Jualan Standard <span style="color: #10b981;">ANW STORE</span>
+        </h2>
+
+        <div id="products-container-sheets" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 10px; max-width: 1200px; margin: 0 auto;">
+            </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTrQSHOeLjhbbb0H3KZlF_mFoITx9MHsDwVurx30f2yNpP_WajIRtJnPcZyOZApUYxdKcMNpNQdZHc4/pub?gid=0&single=true&output=csv";
+
+    fetch(sheetUrl)
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split("\n").slice(1); 
+            const container = document.getElementById("products-container-sheets");
+            container.innerHTML = ""; 
+
+            rows.forEach(row => {
+                if (!row.trim()) return;
+
+                // Trik regex untuk elak data pecah kalau ada tanda koma dalam text
+                const columns = row.match(/(".*?"|[^",\r\n]+)(?=\s*,|\s*$|\r|$)/g) || [];
+                
+                const nama = columns[0] ? columns[0].replace(/"/g, '').trim() : "Kereta CPM";
+                const kategori = columns[1] ? columns[1].replace(/"/g, '').trim() : "Custom";
+                const penerangan = columns[2] ? columns[2].replace(/"/g, '').trim() : "Spesifikasi menarik untuk anda.";
+                const gambar = columns[3] ? columns[3].replace(/"/g, '').trim() : "";
+                const linkAction = columns[4] ? columns[4].replace(/"/g, '').trim() : "";
+
+                const linkGambar = gambar ? gambar : "https://via.placeholder.com/300x400?text=ANW+STORE";
+
+                let cardHtml = `
+                    <div class="product-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(10px);">
+                        <div>
+                            <span style="background: #10b981; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 4px 12px; border-radius: 20px; float: left; margin-bottom: 15px; text-transform: uppercase;">\${kategori}</span>
+                            <div style="clear: both;"></div>
+                            
+                            <img src="\${linkGambar}" alt="\${nama}" style="width: 100%; border-radius: 10px; object-fit: cover; margin-bottom: 15px; aspect-ratio: 3/4; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                            
+                            <h3 style="color: #fff; font-size: 1.25rem; margin: 10px 0 5px 0; font-weight: bold; text-align: left;">\${nama}</h3>
+                            <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.5; min-height: 45px; margin-bottom: 15px; text-align: left;">\${penerangan}</p>
+                        </div>
+                `;
+
+                if (linkAction && linkAction !== "") {
+                    cardHtml += `
+                        <a href="\${linkAction}" target="_blank" style="display: block; background: #10b981; color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.95rem; margin-top: auto; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); text-align: center; transition: 0.2s;">
+                            💥 TEMPAH SEKARANG
+                        </a>
+                    `;
+                } else {
+                    cardHtml += `
+                        <button disabled style="display: block; background: #334155; color: #94a3b8; width: 100%; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.95rem; margin-top: auto; cursor: not-allowed; text-align: center;">
+                            ❌ SOLD OUT / PAMERAN
+                        </button>
+                    `;
+                }
+
+                cardHtml += `</div>`;
+                container.innerHTML += cardHtml;
+            });
+        })
+        .catch(err => console.error("Gagal sedut list sheets:", err));
+});
+</script>    
+
     <!-- SEKSYEN: Komen / Testimoni Pelanggan -->
     <section id="testimonials">
         <div class="container">
