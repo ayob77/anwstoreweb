@@ -1500,8 +1500,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 const gambar = columns[3] ? columns[3].replace(/"/g, '').trim() : "";
                 const linkAction = columns[4] ? columns[4].replace(/"/g, '').trim() : "";
 
-                const linkGambar = gambar ? gambar : "https://via.placeholder.com/300x400?text=ANW+STORE";
+                // =========================================================
+// BARIS KOD BARU (VERSI PEMBETULAN GAMBAR TELEGRAM)
+// =========================================================
+let linkGambar = "https://via.placeholder.com/300x400?text=ANW+STORE"; // Gambar backup
 
+if (gambar && gambar.includes("t.me/")) {
+    // Trik PRO: Paksa sistem tukar /s/ dalam link Telegram untuk format paparan web direct yang sah
+    const baseLink = gambar.split('?')[0]; 
+    if (baseLink.includes("/s/")) {
+        linkGambar = baseLink; // Kalau user dah letak /s/ dalam sheets, kita pakai jer
+    } else {
+        // Kalau user letak link t.me/biasa, kita otomatik tambah /s/ kat tengah bagi jadi t.me/s/
+        linkGambar = baseLink.replace("t.me/", "t.me/s/"); 
+    }
+} else if (gambar) {
+    linkGambar = gambar.trim(); // Kalau link hosting gambar lain, kita pakai direct
+}
+// =========================================================
                 let cardHtml = `
                     <div class="sheet-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(10px);">
                         <div>
