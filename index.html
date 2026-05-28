@@ -1479,10 +1479,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Guna link direct dari Google Sheets
                 const linkGambar = gambarRaw ? gambarRaw.trim() : "https://via.placeholder.com/300x400?text=ANW+STORE";
 
+                // --- LOGIK AUTO-DETECT HARGA UNTUK LABEL HOT ---
+                let labelHot = "";
+                let hargaMatch = kategori.match(/RM\s*(\d+)/i); // Skrip cari nombor lepas perkataan "RM"
+                if (hargaMatch) {
+                    let harga = parseInt(hargaMatch[1]);
+                    // Kalau harga antara RM 5 hingga RM 20, label HOT akan keluar
+                    if (harga >= 5 && harga <= 20) {
+                        labelHot = `<span style="background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 4px 12px; border-radius: 20px; float: left; margin-left: 8px; margin-bottom: 15px; text-transform: uppercase; box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);">🔥 HOT</span>`;
+                    }
+                }
+                // ------------------------------------------------
+
                 let cardHtml = `
                     <div class="sheet-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(10px);">
                         <div>
+                            <!-- Label Kategori Asal -->
                             <span style="background: #10b981; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 4px 12px; border-radius: 20px; float: left; margin-bottom: 15px; text-transform: uppercase;">${kategori}</span>
+                            
+                            <!-- Label HOT Auto Muncul Di Sini -->
+                            ${labelHot}
+                            
                             <div style="clear: both;"></div>
                             
                             <img src="${linkGambar}" alt="${nama}" style="width: 100%; border-radius: 10px; object-fit: cover; margin-bottom: 15px; aspect-ratio: 3/4; box-shadow: 0 4px 10px rgba(0,0,0,0.5);" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400?text=ANW+STORE';">
@@ -1516,8 +1533,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(err => console.error("Gagal memuatkan sistem jualan slide:", err));
 });
-</script>
-                
+</script>                
 
     <!-- SEKSYEN: Komen / Testimoni Pelanggan -->
     <section id="testimonials">
