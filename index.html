@@ -1187,8 +1187,23 @@ body {
             </div>
 
             <!-- Tajuk Utama Berubah Warna Smooth -->
-            <h1 class="brand-name nama-kelip" style="font-size: 2.2rem; white-space: nowrap; width: 100%; text-align: center; margin: 10px 0; letter-spacing: 1px;">ANW STORE</h1>
+            <style>
+@keyframes efekKelip {
+    0%, 100% { 
+        opacity: 1; 
+        text-shadow: 0 0 15px #ff9f1c, 0 0 30px #ff9f1c, 0 0 45px #ff9f1c; /* Glow neon oren lagi terang */
+    }
+    50% { 
+        opacity: 0.2; 
+        text-shadow: none; 
+    }
+}
+.nama-kelip-padu {
+    animation: efekKelip 1.2s infinite ease-in-out !important;
+}
+</style>
 
+<h1 class="brand-name nama-kelip-padu" style="font-size: 2.2rem; white-space: nowrap; width: 100%; text-align: center; margin: 10px 0; letter-spacing: 1px;">ANW STORE</h1>
             <p class="hero-subtitle" style="font-size: 0.9rem; color: #cbd5e1; max-width: 290px; margin: 8px auto 0 auto; line-height: 1.5; text-align: center;">
                 Destinasi Terunggul Untuk Semua Jenis Kereta <strong style="color: #ff9f1c;">Car Parking Multiplayer (CPM)</strong>.<br>
                 <span style="font-size: 0.8rem; color: #94a3b8; display: block; margin-top: 4px;">Proses Pantas, Harga Terbaik & Jaminan Selamat.</span>
