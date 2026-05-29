@@ -2189,6 +2189,44 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-    
+    <div class="counter-box-gaming" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 30px; padding: 10px 20px; width: calc(100% - 40px); max-width: 320px; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(16, 185, 129, 0.1);">
+    <div style="display: flex; justify-content: space-around; align-items: center;">
+        
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: nadiKelip 1.5s infinite alternate;"></span>
+            <span style="color: #cbd5e1; font-size: 0.85rem; font-weight: 600;">
+                Online: <strong id="live-online" style="color: #10b981;">15</strong>
+            </span>
+        </div>
+
+        <div style="width: 1px; height: 18px; background: rgba(255, 255, 255, 0.2);"></div>
+
+        <div>
+            <span style="color: #cbd5e1; font-size: 0.85rem; font-weight: 600;">
+                📊 Pelawat: <strong id="total-pelawat" style="color: #ffcc00;">2,450</strong>
+            </span>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    setInterval(function() {
+        let nomborRandom = Math.floor(Math.random() * (26 - 11 + 1)) + 11;
+        document.getElementById('live-online').innerText = nomborRandom;
+    }, 5000);
+
+    let tapakAsal = 3420; 
+    let masaSekarang = new Date().getTime();
+    let pengiraanPelawat = tapakAsal + Math.floor((masaSekarang - 1716984000000) / 45000); 
+    document.getElementById('total-pelawat').innerText = pengiraanPelawat.toLocaleString();
+</script>
+
+<style>
+    @keyframes nadiKelip {
+        0% { transform: scale(0.9); opacity: 0.5; }
+        100% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 15px #10b981; }
+    }
+</style>    
 </body>
 </html>
