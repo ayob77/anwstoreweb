@@ -1462,7 +1462,6 @@ body {
 <section id="koleksi-standard" style="padding: 40px 0; background: transparent; overflow: hidden;">
     <div class="container">
         <h2 style="color: #fff; text-align: center; margin-bottom: 25px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; font-size: 1.3rem;">
-            🔥 Koleksi Jualan Standard <span style="color: #10b981;">ANW STORE</span>
             🔥 Koleksi Jualan Standard <span class="nama-kelip-padu" style="color: #10b981;">ANW STORE</span>
         </h2>
 
@@ -1518,7 +1517,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (hargaMatch) {
                     let harga = parseInt(hargaMatch[1]);
                     // Kalau harga antara RM 5 hingga RM 20, label HOT akan keluar
-                    if (harga >= 5 && harga <= 20) {
+                    if (harga >= 5 && harga <= 15) {
                         labelHot = `<span style="background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 4px 12px; border-radius: 20px; float: left; margin-left: 8px; margin-bottom: 15px; text-transform: uppercase; box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);">🔥 HOT</span>`;
                     }
                 }
@@ -1528,7 +1527,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="sheet-card" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(10px);">
                         <div>
                             <!-- Label Kategori Asal -->
-                            <span style="background: #10b981; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 4px 12px; border-radius: 20px; float: left; margin-bottom: 15px; text-transform: uppercase;">${kategori}</span>
+                            <span class="nama-kelip-padu" style="background: #10b981; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 4px 12px; border-radius: 20px; float: left; margin-bottom: 15px; text-transform: uppercase;">${kategori}</span>
                             
                             <!-- Label HOT Auto Muncul Di Sini -->
                             ${labelHot}
