@@ -1582,19 +1582,53 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
     <!-- vidio acc promosi -->
-    <section id="promo-videos" style="padding: 40px 0;">
+    <section id="promo-videos" style="padding: 40px 0; overflow: hidden;">
     <div class="container">
         
+        <style>
+            .video-slider-container {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+            
+            /* Responsive: Bila skrin fon/kecil, dia automatik jadi slider */
+            @media (max-width: 680px) {
+                .video-slider-container {
+                    justify-content: flex-start;
+                    overflow-x: auto;
+                    flex-wrap: nowrap;
+                    scroll-snap-type: x mandatory;
+                    padding: 10px 20px 25px 20px;
+                    margin-left: -20px;
+                    margin-right: -20px;
+                    -webkit-overflow-scrolling: touch; /* Biar swipe lancar kat iPhone */
+                }
+                .video-slider-container::-webkit-scrollbar {
+                    height: 6px; /* Letak scrollbar halus kat bawah video */
+                }
+                .video-slider-container::-webkit-scrollbar-thumb {
+                    background: rgba(14, 165, 233, 0.4);
+                    border-radius: 10px;
+                }
+                .video-card-slider {
+                    flex: 0 0 280px; /* Kekalkan saiz kotak video, tak bagi dia mengecil */
+                    scroll-snap-align: center;
+                }
+            }
+        </style>
+
         <h2 class="section-title" style="text-align: center;">
             Video <span>Review & Promosi</span>
         </h2>
         <p style="text-align: center; color: #94a3b8; font-size: 0.8rem; margin-top: -25px; margin-bottom: 30px;">
-            Saksikan ulasan penuh akaun padu CPM sebelum anda lakukan tempahan rasmi! 🚀
+            Saksikan ulasan penuh akaun padu CPM. Guna jari dan tarik kiri/kanan untuk lihat video! 📱
         </p>
         
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <div class="video-slider-container">
             
-            <div class="video-card" style="background: rgba(15, 23, 42, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 12px; width: 100%; max-width: 290px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); backdrop-filter: blur(10px); transition: 0.3s;">
+            <div class="video-card-slider" style="background: rgba(15, 23, 42, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 12px; width: 100%; max-width: 290px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); backdrop-filter: blur(10px);">
                 <div style="width: 100%; height: 490px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
                     <iframe style="width: 100%; height: 100%; border: 0;" 
                             src="https://www.youtube.com/embed/eVrYEagLvBc" 
@@ -1608,7 +1642,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>
 
-            <div class="video-card" style="background: rgba(15, 23, 42, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 12px; width: 100%; max-width: 290px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); backdrop-filter: blur(10px); transition: 0.3s;">
+            <div class="video-card-slider" style="background: rgba(15, 23, 42, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 12px; width: 100%; max-width: 290px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); backdrop-filter: blur(10px);">
                 <div style="width: 100%; height: 490px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
                     <iframe style="width: 100%; height: 100%; border: 0;" 
                             src="https://www.youtube.com/embed/eQ6tS9NBvUM" 
@@ -1624,7 +1658,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         </div>
     </div>
-</section>
+</section>    
     
     <!-- SEKSYEN: Komen / Testimoni Pelanggan -->
     <section id="testimonials">
