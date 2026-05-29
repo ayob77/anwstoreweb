@@ -26,7 +26,30 @@
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
+/* --- ENJIN TUKAR WARNA AUTOMATIK ANW STORE --- */
+@keyframes warnaWarni {
+    0% {
+        color: #ef4444; /* Merah */
+        text-shadow: 0 0 10px #ef4444, 0 0 20px #ef4444;
+    }
+    33% {
+        color: #ffcc00; /* Kuning Neon */
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+    }
+    66% {
+        color: #10b981; /* Hijau Asal */
+        text-shadow: 0 0 10px #10b981, 0 0 20px #10b981;
+    }
+    100% {
+        color: #ef4444; /* Balik ke Merah */
+        text-shadow: 0 0 10px #ef4444, 0 0 20px #ef4444;
+    }
+}
 
+.tukar-warna-gaming {
+    animation: warnaWarni 4s infinite linear;
+    font-weight: bold;
+}
         
 body {
     font-family: 'Open Sans', sans-serif;
@@ -1352,7 +1375,7 @@ body {
 <section id="koleksi-standard" style="padding: 40px 0; background: transparent; overflow: hidden;">
     <div class="container">
         <h2 style="color: #fff; text-align: center; margin-bottom: 25px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; font-size: 1.3rem;">
-            🔥 Koleksi Jualan Limited <span class="nama-kelip-padu" style="color: #10b981;">ANW STORE</span>
+            🔥 Koleksi Jualan ANW STORE <span class="tukar-warna-gaming">LIMITED</span>
         </h2>
     
 <div class="gallery-wrapper" style="padding: 10px 5px; width: 100%; overflow: hidden;">
