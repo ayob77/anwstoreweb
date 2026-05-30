@@ -1560,11 +1560,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     let ayatAuto = `Salam admin, saya nak beli ${nama} - ${kategori}`;
                     let linkTelegramPadu = `https://t.me/ayobanw?text=` + encodeURIComponent(ayatAuto);
 
-                    cardHtml += `
-                        <a href="${linkTelegramPadu}"class="nama-kelip-padu" target="_blank" style="display: block; background: #10b981; color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: auto; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); text-align: center;">
-                            💥 DAPATKAN SEKARANG
-                        </a>
-                    `;
+                    CardHtml += `
+                    <a href="javascript:void(0);" onclick="beliAkaun('${nama}')" class="nama-kelip-padu" style="display: block; background: #10b981;">
+                        💥 DAPATKAN SEKARANG
+                    </a>
+                `;
+                    
+
+
+                    
                 } else {
                     cardHtml += `
                         <button disabled style="display: block; background: #334155; color: #94a3b8; width: 100%; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: auto; cursor: not-allowed; text-align: center;">
@@ -2314,6 +2318,42 @@ document.addEventListener("DOMContentLoaded", function() {
         0% { transform: scale(0.9); opacity: 0.5; }
         100% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 10px #10b981; }
     }
-</style>      
+</style>
+    <script>
+// URL Web App Google Apps Script kau yang dah siap di-deploy
+const ANW_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwcm8Y7Aryv6_4tCv4R6iygQa2suNqeUDfj6lmOtJU1uzQsuq6sPwo6MTkdjEalgNuMLg/exec";
+
+function beliAkaun(prodId) {
+    // 1. Minta ID Telegram pembeli untuk hantar akaun/kereta nanti
+    let tgId = prompt("Sila masukkan ID Telegram anda (Contoh: 123456789):\n\n*Wajib betul! Fail akaun game akan dihantar terus ke Telegram ini selepas bayaran berjaya.");
+    
+    // Jika user tekan cancel atau biar kosong
+    if (!tgId || tgId.trim() === "") {
+        alert("Pembelian dibatalkan. ID Telegram diperlukan untuk proses penghantaran.");
+        return;
+    }
+
+    // 2. Beri signal loading supaya user tahu sistem tengah proses
+    alert("Sistem sedang menjana bil pembayaran ToyyibPay... Klik OK dan tunggu sekejap.");
+
+    // 3. Hantar request ke backend Google Apps Script kau
+    fetch(`${ANW_WEB_APP_URL}?action=createBill&prodId=${prodId}&tgId=${tgId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                // JIKA BERJAYA: Terus bawa customer ke page bayaran ToyyibPay
+                window.location.href = data.url;
+            } else {
+                // JIKA GAGAL: (Contoh: Stok kat Google Sheet dah habis/SOLD)
+                alert("Maaf, proses gagal: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Ralat sistem! Gagal berhubung dengan gateway pembayaran ANW STORE.");
+        });
+}
+</script>
+    
 </body>
 </html>
