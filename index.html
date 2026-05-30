@@ -1560,15 +1560,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     let ayatAuto = `Salam admin, saya nak beli ${nama} - ${kategori}`;
                     let linkTelegramPadu = `https://t.me/ayobanw?text=` + encodeURIComponent(ayatAuto);
                     
-                    cardHtml +=
-                        if (linkAction && linkAction !== "") {
-    // KOD AUTO-PAYMENT ANW STORE (Minta ID Telegram & terus ke ToyyibPay)
+if (linkAction && linkAction !== "") {
     CardHtml += `
         <a href="javascript:void(0);" onclick="beliAkaun('${nama}')" class="nama-kelip-padu" style="display: block; background: #10b981; color: #fff; text-align: center; font-weight: bold; width: 100%; border: none; padding: 10px 0; text-decoration: none; border-radius: 5px;">
             💥 DAPATKAN SEKARANG
         </a>
     `;
-} else {                        
+} else {
                         `
     <a href="#" class="nama-kelip-padu" style="display: block; background: #ef4444; color: #fff; text-align: center; font-weight: bold; width: 100%; border: none; padding: 10px 0; text-decoration: none; border-radius: 5px;">
         ❌ STOK HABIS
