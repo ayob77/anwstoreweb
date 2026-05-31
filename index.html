@@ -2313,32 +2313,30 @@ document.addEventListener("DOMContentLoaded", function() {
     <script>
 // URL Web App Google Apps Script kau yang dah siap di-deploy
 const ANW_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxNv8Synge8ArW224JJQMaNsXlqjpquIqocbZmPCpclwhxmOx7kri-ghmcUKn8Kn3hctA/exec";
-
+                        
 function beliAkaun(prodId) {
-    // 1. Minta ID Telegram pembeli untuk hantar akaun
-    let tgId = prompt("Sila masukkan ID Telegram anda (Contoh: 123456789):\n\n*Wajib betul! Fail akaun game akan dihantar terus ke Telegram ini selepas bayaran berjaya.");
+    // 1. Minta EMAIL pembeli untuk proses hantar barang
+    let emailUser = prompt("Sila masukkan alamat EMAIL anda yang sah (Contoh: pembeli@gmail.com):\n\n*Wajib betul! Data akaun game/lori akan dihantar terus ke email ini selepas bayaran berjaya.");
     
-    // Jika user tekan cancel atau biar kosong
-    if (!tgId || tgId.trim() === "") {
-        alert("Pembelian dibatalkan. ID Telegram diperlukan untuk proses penghantaran.");
+    // Validasi asas untuk pastikan user isi format email dengan betul
+    if (!emailUser || emailUser.trim() === "" || !emailUser.includes("@")) {
+        alert("Pembelian dibatalkan. Alamat email yang sah diperlukan untuk proses penghantaran.");
         return;
     }
 
-    // Pembersihan automatik jika user letak @123456789 (tukar jadi 123456789)
-    tgId = tgId.replace('@', '').trim();
+    emailUser = emailUser.trim();
 
-    // 2. Beri signal loading supaya user tahu sistem tengah proses
+    // 2. Isyarat loading
     alert("Sistem sedang menjana bil pembayaran ToyyibPay... Klik OK dan tunggu sekejap.");
 
-    // 3. Hantar request ke backend Google Apps Script kau
-    fetch(`${ANW_WEB_APP_URL}?action=createBill&prodId=${prodId}&tgId=${tgId}`)
+    // 3. Hantar request ke backend dengan parameter email
+    fetch(`${ANW_WEB_APP_URL}?action=createBill&prodId=${prodId}&email=${encodeURIComponent(emailUser)}`)
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
-                // JIKA BERJAYA: Terus bawa customer ke page bayaran ToyyibPay
+                // Bawa customer ke gateway ToyyibPay
                 window.location.href = data.url;
             } else {
-                // JIKA GAGAL: (Contoh: Stok kat Google Sheet dah habis/SOLD)
                 alert("Maaf, proses gagal: " + data.message);
             }
         })
@@ -2346,8 +2344,7 @@ function beliAkaun(prodId) {
             console.error("Error:", error);
             alert("Ralat sistem! Gagal berhubung dengan gateway pembayaran ANW STORE.");
         });
-}        
-
+}
 </script>
     
 </body>
