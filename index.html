@@ -2313,28 +2313,23 @@ document.addEventListener("DOMContentLoaded", function() {
     <script>
 // URL Web App Google Apps Script kau yang dah siap di-deploy
 const ANW_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxNv8Synge8ArW224JJQMaNsXlqjpquIqocbZmPCpclwhxmOx7kri-ghmcUKn8Kn3hctA/exec";
-                        
+
 function beliAkaun(prodId) {
-    // 1. Minta EMAIL pembeli untuk proses hantar barang
-    let emailUser = prompt("Sila masukkan alamat EMAIL anda yang sah (Contoh: pembeli@gmail.com):\n\n*Wajib betul! Data akaun game/lori akan dihantar terus ke email ini selepas bayaran berjaya.");
+    let emailUser = prompt("Sila masukkan alamat EMAIL anda yang sah (Contoh: pembeli@gmail.com):\n\n*Wajib betul untuk proses penghantaran fail akaun.");
     
-    // Validasi asas untuk pastikan user isi format email dengan betul
     if (!emailUser || emailUser.trim() === "" || !emailUser.includes("@")) {
-        alert("Pembelian dibatalkan. Alamat email yang sah diperlukan untuk proses penghantaran.");
+        alert("Pembelian dibatalkan. Alamat email yang sah diperlukan.");
         return;
     }
 
     emailUser = emailUser.trim();
-
-    // 2. Isyarat loading
     alert("Sistem sedang menjana bil pembayaran ToyyibPay... Klik OK dan tunggu sekejap.");
 
-    // 3. Hantar request ke backend dengan parameter email
+    // Perhatikan hujung parameter ini: kita guna &email=, bukan &tgId=
     fetch(`${ANW_WEB_APP_URL}?action=createBill&prodId=${prodId}&email=${encodeURIComponent(emailUser)}`)
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
-                // Bawa customer ke gateway ToyyibPay
                 window.location.href = data.url;
             } else {
                 alert("Maaf, proses gagal: " + data.message);
@@ -2342,9 +2337,10 @@ function beliAkaun(prodId) {
         })
         .catch(error => {
             console.error("Error:", error);
-            alert("Ralat sistem! Gagal berhubung dengan gateway pembayaran ANW STORE.");
+            alert("Ralat sistem! Gagal berhubung dengan gateway ANW STORE.");
         });
 }
+        
 </script>
     
 </body>
