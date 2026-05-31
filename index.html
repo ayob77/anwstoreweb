@@ -2315,7 +2315,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const ANW_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxNv8Synge8ArW224JJQMaNsXlqjpquIqocbZmPCpclwhxmOx7kri-ghmcUKn8Kn3hctA/exec";
 
 function beliAkaun(prodId) {
-    // 1. Minta ID Telegram pembeli untuk hantar akaun/kereta nanti
+    // 1. Minta ID Telegram pembeli untuk hantar akaun
     let tgId = prompt("Sila masukkan ID Telegram anda (Contoh: 123456789):\n\n*Wajib betul! Fail akaun game akan dihantar terus ke Telegram ini selepas bayaran berjaya.");
     
     // Jika user tekan cancel atau biar kosong
@@ -2323,6 +2323,9 @@ function beliAkaun(prodId) {
         alert("Pembelian dibatalkan. ID Telegram diperlukan untuk proses penghantaran.");
         return;
     }
+
+    // Pembersihan automatik jika user letak @123456789 (tukar jadi 123456789)
+    tgId = tgId.replace('@', '').trim();
 
     // 2. Beri signal loading supaya user tahu sistem tengah proses
     alert("Sistem sedang menjana bil pembayaran ToyyibPay... Klik OK dan tunggu sekejap.");
@@ -2343,7 +2346,8 @@ function beliAkaun(prodId) {
             console.error("Error:", error);
             alert("Ralat sistem! Gagal berhubung dengan gateway pembayaran ANW STORE.");
         });
-}
+}        
+
 </script>
     
 </body>
